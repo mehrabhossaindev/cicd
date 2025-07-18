@@ -1,0 +1,25 @@
+name: Build vue project
+
+## Event
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    setps:
+      - name: npm Install
+        run: echo "Npm Install"
+        
+      - name: npm run build
+        run: echo "Npm run build"
+        
+
+      
+
+  
+  
+  
