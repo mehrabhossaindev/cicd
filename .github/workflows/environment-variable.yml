@@ -3,6 +3,9 @@ name: Environment Variable
 on:
   workflow_dispatch:
 
+env:
+  ChannelName: "Learn With Mehrab"
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -31,4 +34,5 @@ jobs:
         run: |
           echo "deployment"
           echo "your info ${{needs.build.outputs.job_info}}"
-          echo "Your company info is - ${{env.CompayName}}"   
+          echo "Your company info is - ${{env.CompayName}}" 
+          echo "Your Channel Name is - ${{env.ChannelName}}"
