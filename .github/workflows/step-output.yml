@@ -1,0 +1,38 @@
+name: Step Outputs
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: Description
+        type: string
+        default: "Mehrab"
+
+      age:
+        description: Description
+        type: string
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Access Inputs
+        run: echo "Your name is - ${{inputs.name}} and Age is - ${{inputs.age}}"
+
+      - name: Set Value
+        id: step-1
+        run: |
+          echo "Name=Md Mehrab" >> $GITHUB_OUTPUT
+          echo "Age=30" >> $GITHUB_OUTPUT
+
+      - name: Access Output
+        run: |
+          echo " Your Name from Step ${{steps.step-1.outputs.Name}}"
+          echo " Your Age from Step ${{steps.step-1.outputs.Age}}"
+          
+
+
+
+
+      
