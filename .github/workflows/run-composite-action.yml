@@ -1,0 +1,14 @@
+name: Run Composite Action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Initial Job
+        run: echo "Initial Job Start"
+
+      - name: Run Composite Action
+        uses: mehrabhossaindev/simpleCompositeActionWithOutPram@main
