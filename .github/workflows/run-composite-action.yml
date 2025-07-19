@@ -12,3 +12,8 @@ jobs:
 
       - name: Run Composite Action
         uses: mehrabhossaindev/simpleCompositeActionWithOutPram@main
+
+      - name: Run Composite Action with Param
+        uses: mehrabhossaindev/simpleCompositeActionWithPram@main
+        with:
+          nodeJsVersion: 23
