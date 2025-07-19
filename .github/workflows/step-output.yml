@@ -16,6 +16,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      info: ${{steps.step-1.outputs.Name}} ${{steps.step-1.outputs.Age}}
+      
     steps:
       - name: Access Inputs
         run: echo "Your name is - ${{inputs.name}} and Age is - ${{inputs.age}}"
@@ -30,6 +33,15 @@ jobs:
         run: |
           echo " Your Name from Step ${{steps.step-1.outputs.Name}}"
           echo " Your Age from Step ${{steps.step-1.outputs.Age}}"
+
+  deploy:
+     runs-on: ubuntu-latest
+     needs: build
+     steps:
+       - name: Access Output from the build Job
+         run: echo "Your Info is - ${{needs.build.outputs.info}}"
+       
+  
           
 
 
