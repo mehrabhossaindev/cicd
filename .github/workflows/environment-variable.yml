@@ -1,0 +1,34 @@
+name: Environment Variable
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      job_info: "My Job Info"
+
+    env:
+      CompayName: "Code Be Hind"
+      
+    steps:
+      - name: Initial Job
+        run: |
+          echo "Initial Job Start"
+          echo "Company Name is - ${{env.CompayName}}"
+
+      - name: Company Info Show
+        run: |
+          echo "Show Company Info"
+          echo "Company Name is - ${{env.CompayName}} "    
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: "deployment job"
+        run: |
+          echo "deployment"
+          echo "your info ${{needs.build.outputs.job_info}}"
+          echo "Your company info is - ${{env.CompayName}}"   
